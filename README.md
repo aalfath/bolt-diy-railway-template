@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/boltdiy-1?utm_medium=integration&utm_source=button&utm_campaign=bolt-diy)
+
 # bolt.diy on Railway
 
 Railway template for [bolt.diy](https://github.com/stackblitz-labs/bolt.diy), the open-source AI app builder: describe an app in a prompt and bolt.diy writes, runs and edits a full-stack web app in your browser, using the LLM provider of your choice.
