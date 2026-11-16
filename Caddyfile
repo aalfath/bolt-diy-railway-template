@@ -1,0 +1,25 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+}
+
+:{$PORT} {
+	# Health check for Railway: no login, answers only when bolt.diy serves files.
+	handle /healthz {
+		rewrite * /favicon.svg
+		reverse_proxy 127.0.0.1:5173 {
+			header_up Host localhost:5173
+		}
+	}
+
+	# Everything else sits behind the login.
+	handle {
+		basic_auth {
+			{$BOLT_USERNAME} {$BOLT_PASSWORD_HASH}
+		}
+		reverse_proxy 127.0.0.1:5173 {
+			header_up Host localhost:5173
+		}
+	}
+}
